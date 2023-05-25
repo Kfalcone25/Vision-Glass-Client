@@ -1,0 +1,15 @@
+import React from 'react'
+
+const TestimonialCard = ({firstName, lastName, description, rating}) => {
+  return (
+    <div>
+        <h1>{firstName} {lastName}</h1>
+        <p>{description}</p>
+        <span>{rating}/5</span>
+
+        <button type="delete">Delete</button>
+    </div>
+  )
+}
+
+export default TestimonialCard
