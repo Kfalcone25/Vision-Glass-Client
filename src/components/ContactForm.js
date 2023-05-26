@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
 const API_URL = "https://visionserver.fly.dev";
@@ -34,7 +34,7 @@ const ContactForm = () => {
       .then((response) => {
         // Request to the server's endpoint `/auth/login` returns a response
         // with the JWT string ->  response.data.authToken
-        
+
         console.log("JWT token", response.data.authToken);
 
         storeToken(response.data.authToken);
@@ -93,7 +93,6 @@ const ContactForm = () => {
             value={phone}
             onChange={handlePhone}
             class="form-control"
-            placeholder="name@example.com"
           />
         </div>
 
@@ -105,7 +104,6 @@ const ContactForm = () => {
             value={service}
             onChange={handleService}
             class="form-control"
-            placeholder="name@example.com"
           />
         </div>
 
@@ -120,18 +118,9 @@ const ContactForm = () => {
             id="exampleFormControlTextarea1"
           ></textarea>
         </div>
-
-        <div class="form-group">
-          <label for="exampleFormControlFile1">input any images</label>
-          <input
-            type="file"
-            class="form-control-file"
-            id="exampleFormControlFile1"
-          />
-        </div>
-
-        <button type="submit">Submit</button>
       </form>
+
+      <button type="submit">Submit</button>
     </div>
   );
 };
