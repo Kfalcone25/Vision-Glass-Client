@@ -103,6 +103,7 @@ nav ul li {
 
 .testimonial-reviews {
   display: flex;
+  flex-wrap: wrap;
   margin: 3vw;
 }
 
