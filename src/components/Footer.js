@@ -26,7 +26,6 @@ const Footer = () => {
         </div>
 
         <div className="contact-footer">
-          <h2>Services</h2>
 
           <div>
             <Link to={"/commercial"}><li>Commercial</li></Link>

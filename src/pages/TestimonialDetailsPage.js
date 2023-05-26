@@ -52,6 +52,7 @@ const TestimonialDetailsPage = (props) => {
       {testimonial ? 
         <>
           <h1>{testimonial.firstName}</h1>
+          <span>{testimonial.lastName}</span>
           <p>{testimonial.description}</p>
           <span>{testimonial.rating}</span>
         </>
