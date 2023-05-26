@@ -6,8 +6,6 @@ const TestimonialCard = ({firstName, lastName, description, rating}) => {
         <h1>{firstName} {lastName}</h1>
         <p>{description}</p>
         <span>{rating}/5</span>
-
-        <button type="delete">Delete</button>
     </div>
   )
 }

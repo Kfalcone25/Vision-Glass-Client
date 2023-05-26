@@ -13,7 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 div {
-  border: 1px red dotted;
+  /* border: 1px red dotted; */
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

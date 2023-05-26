@@ -15,6 +15,8 @@ import AddTestimonial from "./components/AddTestimonial";
 import TestimonialDetailsPage from "./pages/TestimonialDetailsPage";
 import EditTestimonialPage from "./pages/EditTestimonialPage";
 import AddTestimonialPage from "./pages/AddTestimonialPage";
+import IsAnon from "./components/IsAnon";
+import IsPrivate from "./components/IsPrivate";
 
 function App() {
   return (
@@ -29,7 +31,7 @@ function App() {
         <Route path="/commercial" element={<CommercialPage />} />
         <Route path="/residential" element={<ResidentialPage />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/auth/signup" element={<SignupPage />} />
+        <Route path="/auth/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
         <Route path="/auth/login" element={<LoginPage />} />
         <Route path="/addTestimonial" element={<AddTestimonialPage />} />
         <Route path="/testimonials/:testimonialId" element={<TestimonialDetailsPage />} />

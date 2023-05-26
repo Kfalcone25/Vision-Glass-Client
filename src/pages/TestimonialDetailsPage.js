@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
-const API_URL = "http://localhost:4000";
+// const API_URL = "https://visionserver.fly.dev";
+const API_URL = "http://localhost:4000"
 
 const TestimonialDetailsPage = (props) => {
   const [testimonial, setTestimonial] = useState(null);
+
+  const navigate = useNavigate()
 
   const { testimonialId } = useParams();
 
@@ -19,11 +22,24 @@ const TestimonialDetailsPage = (props) => {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
+        console.log("this is line 23", response.data)
         const oneTestimonial = response.data;
         setTestimonial(oneTestimonial);
       })
       .catch((error) => console.log(error));
   };
+
+  const deleteTestimonial = () => {
+
+    axios
+      .delete(`${API_URL}/testimonials/${testimonialId}`)
+      .then((response) => {
+        console.log("Delete response", response.data)
+
+        navigate("/")
+      })
+      .catch((error) => console.log(error));
+  }
 
   useEffect(() => {
     getTestimonial();
@@ -48,9 +64,8 @@ const TestimonialDetailsPage = (props) => {
         <button>Edit</button>
       </Link>
 
-      <Link to={'/'}>
-        <button>Delete</button>
-      </Link>
+      
+        <button onClick={deleteTestimonial}>Delete</button>
     </div>
   );
 };

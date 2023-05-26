@@ -1,70 +1,123 @@
-import React from "react";
+import { useState, useContext } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
+
+// const API_URL = "https://visionserver.fly.dev";
+const API_URL = "http://localhost:4000";
 
 const ContactForm = () => {
+  const [name, setName] = useState("");
+  const [zip, setZip] = useState();
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [service, setService] = useState("");
+  const [details, setDetails] = useState("");
+
+  const navigate = useNavigate();
+
+  const { storeToken } = useContext(AuthContext);
+
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handleName = (e) => setName(e.target.value);
+  const handleZip = (e) => setZip(e.target.value);
+  const handlePhone = (e) => setPhone(e.target.value);
+  const handleService = (e) => setService(e.target.value);
+  const handleDetails = (e) => setDetails(e.target.value);
+
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    const requestBody = { name, zip, email, phone, service, details };
+
+    axios
+      .post(`${API_URL}/users/contact`, requestBody)
+      .then((response) => {
+        // Request to the server's endpoint `/auth/login` returns a response
+        // with the JWT string ->  response.data.authToken
+        
+        console.log("JWT token", response.data.authToken);
+
+        storeToken(response.data.authToken);
+
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div>
       <h1>Contact Form</h1>
 
-      <form>
+      <form onSubmit={handleContactSubmit}>
         <div class="form-group">
-          <label for="exampleFormControlInput1">Email address</label>
+          <label>Name</label>
+          <input
+            type="text"
+            name="name"
+            // value={name}
+            onChange={handleName}
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Zip Code</label>
+          <input
+            type="zip"
+            name="zip"
+            onChange={handleZip}
+            value={zip}
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
           <input
             type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
             class="form-control"
-            id="exampleFormControlInput1"
             placeholder="name@example.com"
           />
         </div>
+
         <div class="form-group">
-          <label for="exampleFormControlInput1">Email address</label>
+          <label>Phone</label>
           <input
-            type="email"
+            type="number"
+            name="phone"
+            value={phone}
+            onChange={handlePhone}
             class="form-control"
-            id="exampleFormControlInput1"
             placeholder="name@example.com"
           />
         </div>
+
         <div class="form-group">
-          <label for="exampleFormControlInput1">Name</label>
+          <label>Service</label>
           <input
-            type="email"
+            type="text"
+            name="service"
+            value={service}
+            onChange={handleService}
             class="form-control"
-            id="exampleFormControlInput1"
             placeholder="name@example.com"
           />
         </div>
+
         <div class="form-group">
-          <label for="exampleFormControlInput1">Zip Code</label>
-          <input
-            type="email"
-            class="form-control"
-            id="exampleFormControlInput1"
-            placeholder="name@example.com"
-          />
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">phone</label>
-          <input
-            type="email"
-            class="form-control"
-            id="exampleFormControlInput1"
-            placeholder="name@example.com"
-          />
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">What kind of job?</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>Residential</option>
-            <option>Commercial</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Give us a brief description !</label>
+          <label for="exampleFormControlTextarea1">Details</label>
           <textarea
+            type="text"
+            name="details"
+            // value={details}
+            onChange={handleDetails}
             class="form-control"
             id="exampleFormControlTextarea1"
-            rows="3"
           ></textarea>
         </div>
 
@@ -76,6 +129,8 @@ const ContactForm = () => {
             id="exampleFormControlFile1"
           />
         </div>
+
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
