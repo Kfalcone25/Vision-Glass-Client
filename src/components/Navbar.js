@@ -6,15 +6,13 @@ import { AuthContext } from "../context/auth.context";
 
 const Navbar = () => {
 
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
+ const { isLoggedIn, user, logOutUser } = useContext(AuthContext)
 
   return (
     
       <nav className="nav-container">
       <Logo />
         <ul>
-        {!isLoggedIn && (
-          <>
           <li>
             <Link className="nav-link" to={"/"}>
               <span>Home</span>
@@ -50,18 +48,11 @@ const Navbar = () => {
               <span>Login</span>
             </Link>
           </li>
-          </>
-        )}
-         
-         {isLoggedIn && (
-          <>
           <li>
             <Link className="nav-link" to={"/"}>
               <button onClick={logOutUser}>logout</button>
             </Link>
           </li>
-          </>
-         )}
         </ul>
       </nav>
   );
