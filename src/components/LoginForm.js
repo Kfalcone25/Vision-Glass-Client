@@ -3,8 +3,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
-// const API_URL = "https://visionserver.fly.dev";
-const API_URL = "http://localhost:4000"
+const API_URL = "https://visionserver.fly.dev";
+// const API_URL = "http://localhost:4000"
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");

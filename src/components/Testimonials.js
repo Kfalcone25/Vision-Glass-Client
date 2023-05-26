@@ -4,8 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import TestimonialCard from "./TestimonialCard";
 import AddTestimonial from "./AddTestimonial";
 
-// const API_URL = "https://visionserver.fly.dev";
-const API_URL = "http://localhost:4000"
+const API_URL = "https://visionserver.fly.dev";
+// const API_URL = "http://localhost:4000"
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
