@@ -11,7 +11,6 @@ import ResidentialPage from "./pages/ResidentialPage";
 import ServicesPage from "./pages/ServicesPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
-import AddTestimonial from "./components/AddTestimonial";
 import TestimonialDetailsPage from "./pages/TestimonialDetailsPage";
 import EditTestimonialPage from "./pages/EditTestimonialPage";
 import AddTestimonialPage from "./pages/AddTestimonialPage";
