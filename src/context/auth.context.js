@@ -1,7 +1,7 @@
 
 import { useState, useEffect, createContext } from "react";
 import axios from "axios";
-const API_URL = "https://visionserver.fly.dev";
+import { baseUrl } from "../services/baseUrl";
 
 const AuthContext = createContext();
 
@@ -27,7 +27,7 @@ function AuthProvider({ children }) {
     if (storedToken) {
       // We must send the JWT token in the request's "Authorization" Headers
       axios.get(
-        `${API_URL}/auth/verify`, 
+        `${baseUrl}/auth/verify`, 
         { headers: { Authorization: `Bearer ${storedToken}`} }
       )
       .then((response) => {

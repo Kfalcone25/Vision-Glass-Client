@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
- 
-const API_URL = "https://visionserver.fly.dev";
-// const API_URL = "http://localhost:4000"
+import { baseUrl } from "../services/baseUrl";
 
 const SignUpForm = (props) => {
   const [email, setEmail] = useState("");
@@ -26,7 +24,7 @@ const SignUpForm = (props) => {
     // Make an axios request to the API
     // If the POST request is a successful redirect to the login page
     // If the request resolves with an error, set the error message in the state
-    axios.post(`${API_URL}/auth/signup`, requestBody)
+    axios.post(`${baseUrl}/auth/signup`, requestBody)
       .then((response) => {
         console.log("User:", response.data)
         navigate('/auth/login');

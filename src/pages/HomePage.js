@@ -11,14 +11,14 @@ function HomePage() {
           <h1>Vision Glass Company</h1>
           <span>Let us make you're Vision a reality!</span>
           <div>
-            <Link to={"/about"}>
+            <Link to={"/about"} style={{ textDecoration: 'none' }}>
               <button className="button-design">Learn More</button>
             </Link>
           </div>
         </div>
 
         <div className="img-container">
-          <img src="/TeamPhoto.jpg" alt="main image" />
+          <img src="/TeamPhoto.jpg" alt="main" />
         </div>
       </div>
       <Testimonials />

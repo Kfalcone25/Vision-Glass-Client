@@ -1,9 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import ContactForm from "../components/ContactForm";
-
-// const API_URL = "https://visionserver.fly.dev";
-const API_URL = "http://localhost:4000"
+import { baseUrl } from "../services/baseUrl"; 
 
 const ContactPage = () => {
   const [email, setEmail] = useState("");

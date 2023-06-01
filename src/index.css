@@ -34,7 +34,10 @@ nav {
   border-radius: 5rem;
   padding: 2rem;
 }
-
+* {
+  /* border: .5px dotted red; */
+  text-decoration: none;
+}
 nav ul {
   display: flex;
   list-style: none;
@@ -65,6 +68,7 @@ nav ul li {
   height: 85vh;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: rgba(167, 160, 155, 0.849);
 }
 .main-container h1 {
@@ -115,9 +119,7 @@ nav ul li {
 
 .footer {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: space-around;
   background-color: rgb(32, 31, 31);
 }
 
@@ -208,7 +210,7 @@ nav ul li {
 .contact-form {
   display: flex;
   flex-direction: column;
-  border: 1px red dotted;
+  /* border: 1px red dotted; */
   width: 55vw;
   height: auto;
   align-items: start;
@@ -223,13 +225,13 @@ nav ul li {
 }
 
 .message-form-box {
-  border: 5px solid red;
+  /* border: 5px solid red; */
   margin: 3rem;
 }
 
 
 .message-form-box label{
-  border: 5px solid red;
+  /* border: 5px solid red; */
   margin: 3rem;
 }
 
@@ -241,7 +243,7 @@ nav ul li {
 }
 
 .button-design {
-  background-color: #1899D6;
+  background-color: rgba(167, 160, 155, 0.849);
   border: solid transparent;
   border-radius: 16px;
   border-width: 0 0 4px;
@@ -250,14 +252,14 @@ nav ul li {
   cursor: pointer;
   display: inline-block;
   font-family: din-round,sans-serif;
-  font-size: 15px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: .8px;
-  line-height: 20px;
+  letter-spacing: .1rem;
+  line-height: 2rem;
   margin: 0;
   outline: none;
   overflow: hidden;
-  padding: 13px 16px;
+  padding: 1rem 1.5rem;
   text-align: center;
   text-transform: uppercase;
   touch-action: manipulation;
@@ -267,17 +269,18 @@ nav ul li {
   -webkit-user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+
   /* width: 100%; */
 
 }
 
 .button-design:after {
   background-clip: padding-box;
-  background-color: #1CB0F6;
+  background-color:rgb(32, 31, 31);
   border: solid transparent;
-  border-radius: 16px;
+  border-radius: .5rem;
   border-width: 0 0 4px;
-  bottom: -4px;
+  bottom: -2rem;
   content: "";
   left: 0;
   position: absolute;
@@ -382,12 +385,12 @@ nav ul li {
   justify-content: center;
   align-items: center;
   width: 75vw;
-  border: 2px red dotted;
+  /* border: 2px red dotted; */
   padding: 2rem;
 }
 
 .about-text {
-  border: 2px red dotted;
+  /* border: 2px red dotted; */
   width: 25vw;
   margin: 5rem;
   margin-left: -2rem;
@@ -406,3 +409,6 @@ nav ul li {
   border-radius: 32px;
 }
 
+.footer-h2 {
+  color: #1CB0F6;
+}

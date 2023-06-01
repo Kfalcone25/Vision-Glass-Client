@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";  
 import axios from "axios";
-
-const API_URL = "https://visionserver.fly.dev";
-// const API_URL = "http://localhost:4000"
+import { baseUrl } from "../services/baseUrl";
 
 const EditTestimonialPage = () => {
   
@@ -22,7 +20,7 @@ const EditTestimonialPage = () => {
     const requestBody = {firstName, lastName, description, rating};
 
     axios
-      .put(`${API_URL}/testimonials/${testimonialId}`, requestBody)
+      .put(`${baseUrl}/testimonials/${testimonialId}`, requestBody)
       .then((response) => {
         console.log("Updated: ", response.data)
 
@@ -45,7 +43,7 @@ const EditTestimonialPage = () => {
 
   useEffect(() => {
     axios
-    .get(`${API_URL}/testimonials/${testimonialId}`)
+    .get(`${baseUrl}/testimonials/${testimonialId}`)
     .then((response) => {
       const oneTestimonial = response.data;
       setFirstName(oneTestimonial.firstName);

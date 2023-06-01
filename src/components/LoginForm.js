@@ -3,8 +3,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 
-const API_URL = "https://visionserver.fly.dev";
-// const API_URL = "http://localhost:4000"
+import { baseUrl } from "../services/baseUrl";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -23,7 +22,7 @@ const LoginForm = () => {
     const requestBody = { email, password };
 
     axios
-      .post(`${API_URL}/auth/login`, requestBody)
+      .post(`${baseUrl}/auth/login`, requestBody)
       .then((response) => {
         // Request to the server's endpoint `/auth/login` returns a response
         // with the JWT string ->  response.data.authToken

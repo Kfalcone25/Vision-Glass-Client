@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
-
-const API_URL = "https://visionserver.fly.dev";
-// const API_URL = "http://localhost:4000"
+import { baseUrl } from "../services/baseUrl";
 
 const TestimonialDetailsPage = (props) => {
   const [testimonial, setTestimonial] = useState(null);
@@ -18,7 +16,7 @@ const TestimonialDetailsPage = (props) => {
 
     // Send the token through the request "Authorization" Headers
     axios
-      .get(`${API_URL}/testimonials/${testimonialId}`, {
+      .get(`${baseUrl}/testimonials/${testimonialId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
@@ -32,7 +30,7 @@ const TestimonialDetailsPage = (props) => {
   const deleteTestimonial = () => {
 
     axios
-      .delete(`${API_URL}/testimonials/${testimonialId}`)
+      .delete(`${baseUrl}/testimonials/${testimonialId}`)
       .then((response) => {
         console.log("Delete response", response.data)
 

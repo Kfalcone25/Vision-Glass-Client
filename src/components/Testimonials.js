@@ -3,9 +3,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import TestimonialCard from "./TestimonialCard";
 import AddTestimonial from "./AddTestimonial";
-
-const API_URL = "https://visionserver.fly.dev";
-// const API_URL = "http://localhost:4000"
+import { baseUrl } from "../services/baseUrl";
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -14,7 +12,7 @@ const Testimonials = () => {
 
   const getAllTestimonials = () => {
     axios
-      .get(`${API_URL}/testimonials`)
+      .get(`${baseUrl}/testimonials`)
       .then((res) => setTestimonials(res.data))
       .catch((error) => console.log(error));
   };

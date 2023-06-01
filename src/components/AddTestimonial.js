@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { baseUrl } from "../services/baseUrl";
 
-const API_URL = "https://visionserver.fly.dev";
-// const API_URL = "http://localhost:4000"
+
 
 const AddTestimonial = ({ refreshTestimonials }) => {
   const [firstName, setFirstName] = useState("");
@@ -19,7 +19,7 @@ const AddTestimonial = ({ refreshTestimonials }) => {
 
     // Send the token through the request "Authorization" Headers
     axios
-      .post(`${API_URL}/testimonials`, requestBody, {
+      .post(`${baseUrl}/testimonials`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
